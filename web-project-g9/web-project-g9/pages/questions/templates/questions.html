@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block page_body_main %}
+    <div class="main">
+        <div class="page">
+            {% for faq in faqs %}
+            <button class="accordion" onclick="toggle2(this)">{{faq.question}}</button>
+                <div class="answer" >
+                    <p>
+                        {{ faq.answer | safe }}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

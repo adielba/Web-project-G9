@@ -1,0 +1,19 @@
+{% block header %}
+   <header>
+        <img src="../../../static/media/images/eyeLogo.jfif">
+        <h1>מרפאת עיניים וטרינרית</h1>
+        {% if session.get("is_logged_in")|default(False) %}
+            <div id="greeting" dir="rtl">
+                <p> היי,{{ session.get("first_name") }}!</p>
+            </div>
+            <a class="headerBtn" href="user_setting" style="margin-left: 5px">אזור אישי</a>
+            <a class="headerBtn" href="homepage.lo">התנתק</a>
+
+        {% else %}
+            <a class="headerBtn" href="logIn">התחבר עכשיו</a> &nbsp;
+            <a class="headerBtn" href="signUp">צור משתמש חדש</a>
+        {% endif %}
+
+    </header>
+{% endblock %}
+

@@ -1,0 +1,84 @@
+{#
+Base page variables:
+-- page_lang | default: 'en'
+-- page_head_title_author | default: 'Barak Pinchovski'
+-- page_head_title | default: 'Flask skeleton project'
+#}
+
+{#
+Base page blocks:
+- head
+-- page_head
+-- page_head_meta
+--- page_head_meta_extra
+-- page_head_css
+
+- body
+-- page_body_content
+--- page_body_header
+---- page_body_header_content
+----- page_body_header_content__main_menu
+------ page_body_header_content__main_menu_content
+------- page_body_header_content__main_menu_content_links
+--- page_body_main
+---- page_body_main_content
+--- page_body_footer
+---- page_body_footer_content
+-- page_body_js
+ #}
+<!DOCTYPE html>
+ <html dir="rtl" lang="he">
+    <head>
+    {% block page_head %}
+        {# Title #}
+        <title>{{ page_head_title_author|default('eveVet', true) }}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+
+        {# Meta tags #}
+        {% block page_head_meta %}
+            <meta charset="UTF-8"/>
+            <meta name="author" content="Group9"/>
+        {% endblock %}
+
+        {# icon #}
+        <link rel="icon" href="{{ url_for('static', filename='media/images/eyeLogo.jfif') }}"/>
+
+        {# Base #}
+        <base href="/"/>
+
+        {# CSS #}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+    {% endblock %}
+
+    {% block header %}
+        {% include '/header.html' %}
+    {% endblock %}
+
+    </head>
+        {% block navigation_bar %}
+            {% include '/navigation_bar.html' %}
+            <body onload = "setNavActive()"></body>
+        {% endblock %}
+    <body>
+            {# Main #}
+            {% block page_body_main %}
+                <main class="page-main">
+                  {% block page_body_main_content %}
+                  {% endblock %}
+                </main>
+            {% endblock %}
+
+            {# Footer #}
+            {% block page_body_footer %}
+                {% include '/footer.html' %}
+            {% endblock %}
+
+        {# JS #}
+            {%  block page_body_js %}
+                <script src="{{ url_for('static', filename='js/functions.js') }}"></script>
+            {% endblock %}
+
+    </body>
+</html>

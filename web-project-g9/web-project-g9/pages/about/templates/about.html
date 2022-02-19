@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block page_body_main %}
+    <div class="main">
+        <div class="images">
+            <img src="../../../static/media/images/aboutPic.jpeg">
+        </div>
+        <div id="right">
+            <h3>מי אני?</h3>
+            {% for person in about %}
+                <h4>{{ person.Name }}</h4>
+                <p>
+                    {{ person.Description }}
+                </p>
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block page_body_main %}
+    <div class="main">
+        {% for customer in customerTalks %}
+        <div class="surgery_questions_talk">
+            <h3>{{ customer.Name }}</h3>
+            <p>
+             {{ customer.Description | safe}}
+            </p>
+        </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block page_body_main %}
+
+    <div class="main">
+        <div class="images">
+            <img src="../../../static/media/images/askDoctor.png">
+        </div>
+        <div>
+            <br>
+
+            <h3>התייעץ עם וטרינר</h3>
+            {% if session.get("is_logged_in") %}
+                <form action="/askDoctor" method="post">
+                    <label for="fsubject">סוג בעל החיים:</label>
+                    <select name="fsubject" id="fsubject">
+                      <option value="כלב">כלב</option>
+                      <option value="חתול">חתול</option>
+                      <option value="סוס">סוס</option>
+                      <option value="אחר">אחר</option>
+                    </select>
+                    <label for="question">פירוט השאלה</label>
+                    <textarea id="question" name="question" rows="5" cols="20"></textarea>
+                    <input type="submit" value="שלח">
+                </form>
+            {% else %}
+                <h3>בכדי להתייעץ עם רופא עלייך להתחבר לאתר...</h3>
+            {% endif %}
+        </div>
+    </div>
+    <div style="color:green;font-weight:bold;">
+        {{ message }}
+    </div>
+{% endblock %}

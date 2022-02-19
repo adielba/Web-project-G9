@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block page_body_main %}
+    <div class="main">
+        {% if session.get("is_logged_in") %}
+            <h2>{{ session.get("first_name") }}, ברוכים הבאים לאזור האישי</h2>
+                <p>כאן תוכל לעדכן את פרטי המשתמש שלך</p>
+            <br>
+            <form name="update_form" action="/user_setting" method="post">
+                <label for="current_password">הסיסמא הנוכחית שלך:</label>
+                <input type="password" id="current_password" name="current_password" placeholder="הזן את הסיסמא הנוכחית...">
+                <label for="new_password">סיסמא חדשה:</label>
+                <input type="password" id="new_password" name="new_password" placeholder="הסיסמה החדשה שלך..">
+                <input type="submit" value="עדכן" >
+            </form>
+        {% else %}
+            <h2>עלייך להתחבר לאתר בכדי להכנס לאזור האישי.</h2>
+        {% endif %}
+    </div>
+{% endblock %}

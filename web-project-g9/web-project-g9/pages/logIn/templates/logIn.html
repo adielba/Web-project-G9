@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block page_body_main %}
+    <div class="main">
+
+        <div>
+            <h2>התחברות לאתר</h2>
+            <form name="myForm" onsubmit="return validateLogInSingUpForm()" method="post">
+                <div>
+                    <label for="email">אימייל</label>
+                    <input type="text" id="email" name="email" placeholder="האימייל שלך..">
+                    <label for="password">סיסמה</label>
+                    <input type="password" id="password" name="password" placeholder="הסיסמה שלך..">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+            <h2>
+                לא רשום?
+                <a href="signUp">הרשם</a>
+            </h2>
+        </div>
+    </div>
+{% endblock %}

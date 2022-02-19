@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block page_body_main %}
+    <div class="main">
+        {% for surgeryType in surgeryTypes %}
+            <div class="surgery_questions_talk">
+                <h3>{{ surgeryType.Name }}</h3>
+                <p class="description collapsed">
+
+                    {{ surgeryType.Description | safe}}
+                </p>
+                <p class="toggle" onclick="toggle(event)">קרא עוד</p>
+            </div>
+        {% endfor %}
+        <div>
+            <br>
+            <h1>קביעת תור לניתוח</h1>
+            {% if session.get("is_logged_in") %}
+                <form action="/surgery" method="POST">
+                    <label for="type_of_animal">סוג בעל החיים:</label>
+                    <select name="type_of_animal" id="type_of_animal" required>
+                      <option value="כלב">כלב</option>
+                      <option value="חתול">חתול</option>
+                      <option value="סוס">סוס</option>
+                      <option value="אחר">אחר</option>
+                    </select>
+                    <label for="animal_name">שם בעל החיים:</label>
+                    <input type="text" style="width: 96%;" id="animal_name" name="animal_name" required/>
+                    <label for="question">סוג ניתוח:</label>
+                    <select name="typeOfSurgery" id="typeOfSurgery" required>
+                        <option value="קטרקט">קטרקט</option>
+                        <option value="צרי איי">צ’רי איי – cherry eye</option>
+                        <option value="העברת צינורית רוק לעין -PDT">PDT- העברת צינורית רוק לעין</option>
+                    </select>
+
+                    <div>
+                    <div class="calender">
+                        <label for="date">תאריך ניתוח:</label>
+                        <div>
+                        <input type="date" name="date" id="date" required/>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="button-surgery">
+                    <input type="submit" value="שמור תור">
+                    </div>
+                </form>
+            {% else %}
+                <h3>בכדי לקבוע תור לניתוח עלייך להתחבר לאתר...</h3>
+            {% endif %}
+        </div>
+        <div class="messages {{ message_type }}">
+            {{ message }}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block page_body_main %}
+     <div class="main">
+         <script>
+             window.onload=function() {
+                 setNavActive();
+                 change_images();
+             }
+         </script>
+
+            <div id="left">
+                <div id="bigImageContainer">
+                   <img src="../../../static/media/images/5.jpeg" id="bigImage">
+                </div>
+                <div id="images">
+                    <img id=leftImage src="../../../static/media/images/7.jpeg" id="leftImage">
+                    <img id=centerImage src="../../../static/media/images/8.jpeg" id="centerImage">
+                    <img id=rightImage src="../../../static/media/images/9.jpeg" id="rightImage">
+                </div>
+            </div>
+            <div id="right">
+                <p>
+                    מרפאת EYECARE עוסקת ברפואת עיניים וטרינרית, ומטפלת בכל סוגי החיות: כלבים, חתולים, חיות אקזוטיות ואף סוסים. אנו מקבלים הפניות ממרפאות רבות ברחבי הארץ המבקשות לקבל ייעוץ בבעיות עיניים, וכן ניתן לפנות למרפאה באופן עצמאי.
+                    <br><br>
+                    רפואת עיניים היא תחום ייחודי מתוך כלל התחומים ברפואה וטרינרית,  ודורשת במקרים רבים לא רק יידע  ומומחיות – אלא גם מכשור ייחודי אופטלמולוגי לבדיקת עיניים יסודית, טיפולי דלקת עיניים בכלב ובחתול ולמגוון ניתוחי עיניים כגון: ניתוח קרנית, גלאוקומה, כיב קרנית, ניתוח קטרקט לכלבים וחתולים, לצד מגוון ניתוחי עיניים אחרים.
+                    <br><br>
+                    שמנו לנו כייעוד למנוע סבל וכאב הקשורים למחלות עיניים בכלבים ובחתולים . אנו נעשה כל שניתן כדי להציל ולהחזיר ראיה.   זהו הייעוד שהצבנו לנו ואנו מתחייבים לשרת אתכם במקצועיות ובאנושיות במהלך הטיפול בחיית המחמד שלכם.</p>
+            </div>
+     </div>
+
+
+{% endblock %}

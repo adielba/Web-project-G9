@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block page_body_main %}
+    <div class="main">
+        <div class="images">
+            <img src="../../../static/media/images/services.jpeg">
+        </div>
+        <div id="right">
+            <h3>שירותי המרפאה:</h3>
+            <div>
+                {% for service in services %}
+                <h4>{{ service.Name }}</h4>
+                <p>
+                    {{ service.Description }}
+                </p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
